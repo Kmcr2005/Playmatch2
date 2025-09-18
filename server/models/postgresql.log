@@ -1,0 +1,13 @@
+2025-09-18 08:57:31.884 IST [5369] LOG:  starting PostgreSQL 17.5 (Postgres.app) on aarch64-apple-darwin23.6.0, compiled by Apple clang version 15.0.0 (clang-1500.3.9.4), 64-bit
+2025-09-18 08:57:31.885 IST [5369] LOG:  listening on IPv6 address "::1", port 5432
+2025-09-18 08:57:31.885 IST [5369] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-09-18 08:57:31.886 IST [5369] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2025-09-18 08:57:31.887 IST [5372] LOG:  database system was shut down at 2025-09-18 08:57:31 IST
+2025-09-18 08:57:31.889 IST [5369] LOG:  database system is ready to accept connections
+2025-09-18 08:57:52.550 IST [5369] LOG:  received fast shutdown request
+2025-09-18 08:57:52.550 IST [5369] LOG:  aborting any active transactions
+2025-09-18 08:57:52.552 IST [5369] LOG:  background worker "logical replication launcher" (PID 5375) exited with exit code 1
+2025-09-18 08:57:52.552 IST [5370] LOG:  shutting down
+2025-09-18 08:57:52.553 IST [5370] LOG:  checkpoint starting: shutdown immediate
+2025-09-18 08:57:52.608 IST [5370] LOG:  checkpoint complete: wrote 945 buffers (5.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.044 s, sync=0.010 s, total=0.056 s; sync files=308, longest=0.001 s, average=0.001 s; distance=4333 kB, estimate=4333 kB; lsn=0/1B94AF8, redo lsn=0/1B94AF8
+2025-09-18 08:57:52.611 IST [5369] LOG:  database system is shut down
