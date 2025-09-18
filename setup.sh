@@ -10,14 +10,7 @@ if ! command -v node &> /dev/null; then
     exit 1
 fi
 
-# Check if PostgreSQL is installed
-if ! command -v psql &> /dev/null; then
-    echo "❌ PostgreSQL is not installed. Please install PostgreSQL first."
-    echo "   Visit: https://www.postgresql.org/download/"
-    exit 1
-fi
-
-echo "✅ Node.js and PostgreSQL are installed"
+echo "✅ Node.js is installed"
 
 # Install dependencies
 echo "📦 Installing dependencies..."
@@ -27,23 +20,25 @@ npm run install-all
 if [ ! -f "server/.env" ]; then
     echo "⚙️  Creating environment configuration..."
     cp server/env.example server/.env
-    echo "📝 Please edit server/.env with your database credentials"
-    echo "   - DB_USER: your PostgreSQL username"
-    echo "   - DB_PASSWORD: your PostgreSQL password"
+    echo "📝 Please edit server/.env with your Supabase credentials"
+    echo "   - SUPABASE_URL: your Supabase project URL"
+    echo "   - SUPABASE_ANON_KEY: your Supabase anon key"
+    echo "   - SUPABASE_SERVICE_ROLE_KEY: your Supabase service role key"
     echo "   - JWT_SECRET: a secure random string"
 fi
 
-# Database setup
-echo "🗄️  Setting up database..."
+# Supabase setup
+echo "🗄️  Setting up Supabase..."
 echo "Please ensure you have:"
-echo "1. Created a PostgreSQL database named 'playmatch'"
-echo "2. Installed PostGIS extension: CREATE EXTENSION IF NOT EXISTS postgis;"
-echo "3. Updated server/.env with correct database credentials"
+echo "1. Created a Supabase project at https://supabase.com"
+echo "2. Enabled PostGIS extension in SQL Editor: CREATE EXTENSION IF NOT EXISTS postgis;"
+echo "3. Updated server/.env with your Supabase credentials"
 echo ""
-echo "To create the database and run migrations:"
-echo "  createdb playmatch"
-echo "  psql -d playmatch -c 'CREATE EXTENSION IF NOT EXISTS postgis;'"
-echo "  cd server && npm run migrate create"
+echo "To set up your Supabase project:"
+echo "  1. Go to https://supabase.com and create a new project"
+echo "  2. Copy your project URL and API keys"
+echo "  3. Update server/.env with your credentials"
+echo "  4. Run: cd server && node scripts/supabase-migrate.js create"
 echo ""
 
 echo "🚀 Setup complete! To start the development servers:"

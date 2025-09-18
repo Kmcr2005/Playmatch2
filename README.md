@@ -41,7 +41,7 @@ PlayMatch is a comprehensive sports matchmaking platform that pairs players of s
 
 ### Prerequisites
 - Node.js (v16 or higher)
-- PostgreSQL (v12 or higher) with PostGIS extension
+- Supabase account (free tier available)
 - npm or yarn
 
 ### Installation
@@ -57,13 +57,10 @@ PlayMatch is a comprehensive sports matchmaking platform that pairs players of s
    npm run install-all
    ```
 
-3. **Set up the database**
+3. **Set up Supabase**
    ```bash
-   # Create a PostgreSQL database
-   createdb playmatch
-   
-   # Install PostGIS extension
-   psql -d playmatch -c "CREATE EXTENSION IF NOT EXISTS postgis;"
+   # Create a new Supabase project at https://supabase.com
+   # Note down your project URL and API keys
    ```
 
 4. **Configure environment variables**
@@ -71,22 +68,27 @@ PlayMatch is a comprehensive sports matchmaking platform that pairs players of s
    # Copy the example environment file
    cp server/env.example server/.env
    
-   # Edit server/.env with your database credentials
-   DB_HOST=localhost
-   DB_PORT=5432
-   DB_NAME=playmatch
-   DB_USER=your_username
-   DB_PASSWORD=your_password
+   # Edit server/.env with your Supabase credentials
+   SUPABASE_URL=your_supabase_project_url
+   SUPABASE_ANON_KEY=your_supabase_anon_key
+   SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
    JWT_SECRET=your_super_secret_jwt_key_here
    ```
 
-5. **Run database migrations**
-   ```bash
-   cd server
-   npm run migrate create
+5. **Enable PostGIS extension in Supabase**
+   ```sql
+   -- Go to your Supabase dashboard > SQL Editor
+   -- Run this command:
+   CREATE EXTENSION IF NOT EXISTS postgis;
    ```
 
-6. **Start the development servers**
+6. **Run database migrations**
+   ```bash
+   cd server
+   node scripts/supabase-migrate.js create
+   ```
+
+7. **Start the development servers**
    ```bash
    # From the root directory
    npm run dev
@@ -95,6 +97,81 @@ PlayMatch is a comprehensive sports matchmaking platform that pairs players of s
 This will start:
 - Backend server on http://localhost:5000
 - Frontend development server on http://localhost:3000
+
+## 🗄️ Supabase Setup Guide
+
+### Creating a Supabase Project
+
+1. **Sign up for Supabase**
+   - Go to [https://supabase.com](https://supabase.com)
+   - Create a free account
+   - Click "New Project"
+
+2. **Configure your project**
+   - Choose your organization
+   - Enter project name: `playmatch`
+   - Set a strong database password
+   - Choose a region close to your users
+   - Click "Create new project"
+
+3. **Get your API keys**
+   - Go to Settings > API
+   - Copy the following:
+     - Project URL
+     - `anon` `public` key
+     - `service_role` `secret` key
+
+4. **Enable PostGIS extension**
+   - Go to SQL Editor in your Supabase dashboard
+   - Run: `CREATE EXTENSION IF NOT EXISTS postgis;`
+   - Click "Run" to execute
+
+### Environment Configuration
+
+Create a `.env` file in the `server` directory:
+
+```bash
+# Supabase Configuration
+SUPABASE_URL=https://your-project-ref.supabase.co
+SUPABASE_ANON_KEY=your_anon_key_here
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
+
+# JWT Configuration (Optional - can use Supabase Auth)
+JWT_SECRET=your_super_secret_jwt_key_here
+JWT_EXPIRES_IN=7d
+
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+# External APIs (Optional)
+GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+MAPBOX_ACCESS_TOKEN=your_mapbox_access_token
+```
+
+### Database Migration
+
+Run the migration script to create all tables:
+
+```bash
+cd server
+node scripts/supabase-migrate.js create
+```
+
+This will create:
+- All required tables with proper relationships
+- PostGIS spatial indexes for location-based queries
+- Default sports data (badminton, table tennis, pickleball)
+- Optimized indexes for performance
+
+### Supabase Features Used
+
+- **PostgreSQL Database**: Full-featured relational database
+- **PostGIS Extension**: Geospatial queries for location matching
+- **Row Level Security**: Data protection and access control
+- **Real-time Subscriptions**: Live updates for match status
+- **Edge Functions**: Serverless functions for complex operations
+- **Storage**: File storage for profile images and documents
 
 ## 📊 Database Schema
 
@@ -337,5 +414,3 @@ For support and questions:
 ---
 
 **PlayMatch** - Find your perfect sports opponent! 🏓🏸🎾
-# Playmatch2
-# Playmatch2

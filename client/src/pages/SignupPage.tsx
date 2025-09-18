@@ -47,7 +47,12 @@ const SignupPage: React.FC = () => {
       setLoading(true);
       setError('');
       const { confirmPassword, ...signupData } = data;
-      await signup(signupData);
+      // Convert Date to string if present
+      const processedData = {
+        ...signupData,
+        dateOfBirth: signupData.dateOfBirth ? signupData.dateOfBirth.toISOString().split('T')[0] : undefined
+      };
+      await signup(processedData);
       navigate('/dashboard');
     } catch (err: any) {
       setError(err.response?.data?.error || 'Signup failed');
