@@ -296,7 +296,7 @@ The platform is fully responsive and works seamlessly on:
 - Mobile phones
 - Progressive Web App (PWA) capabilities
 
-## 🚀 Deployment
+## Deployment
 
 ### Production Setup
 1. **Environment Configuration**
