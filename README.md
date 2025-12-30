@@ -2,7 +2,7 @@
 
 PlayMatch is a comprehensive sports matchmaking platform that pairs players of similar skill levels in sports such as badminton, table tennis, and pickleball. The system uses a chess-style Elo rating algorithm to ensure fair and competitive matches.
 
-## 🏆 Features
+## Features
 
 ### Core Features (MVP)
 - **User Authentication**: Secure signup/login with JWT tokens
@@ -37,7 +37,7 @@ PlayMatch is a comprehensive sports matchmaking platform that pairs players of s
 - **Forms**: React Hook Form with Yup validation
 - **HTTP Client**: Axios with interceptors
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js (v16 or higher)
@@ -98,7 +98,7 @@ This will start:
 - Backend server on http://localhost:5000
 - Frontend development server on http://localhost:3000
 
-## 🗄️ Supabase Setup Guide
+## Supabase Setup Guide
 
 ### Creating a Supabase Project
 
@@ -173,7 +173,7 @@ This will create:
 - **Edge Functions**: Serverless functions for complex operations
 - **Storage**: File storage for profile images and documents
 
-## 📊 Database Schema
+## Database Schema
 
 ### Core Tables
 - **users**: User accounts and basic information
@@ -189,7 +189,7 @@ This will create:
 - **Rating System**: Elo-based ratings with K-factor adjustments for player experience
 - **Flexible Schema**: Support for multiple sports per user and venue
 
-## 🔧 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/auth/signup` - User registration
@@ -229,7 +229,7 @@ This will create:
 - `GET /api/leaderboards/recent-matches` - Get recent matches
 - `GET /api/leaderboards/stats` - Get platform statistics
 
-## 🎯 Elo Rating System
+## Elo Rating System
 
 The platform uses a sophisticated Elo rating system adapted for sports:
 
@@ -246,7 +246,7 @@ The platform uses a sophisticated Elo rating system adapted for sports:
 - **Availability**: Time and venue preferences
 - **Win Probability**: Target 40-60% for balanced matches
 
-## 🗺️ Location Features
+## Location Features
 
 ### Geospatial Capabilities
 - **PostGIS Integration**: Efficient spatial queries
@@ -260,7 +260,7 @@ The platform uses a sophisticated Elo rating system adapted for sports:
 - Match locations
 - Search radius preferences
 
-## 🔒 Security Features
+## Security Features
 
 ### Authentication & Authorization
 - **JWT Tokens**: Secure, stateless authentication
@@ -274,7 +274,7 @@ The platform uses a sophisticated Elo rating system adapted for sports:
 - **Input Validation**: Comprehensive data validation
 - **SQL Injection Protection**: Parameterized queries
 
-## 🎨 Frontend Features
+## Frontend Features
 
 ### User Interface
 - **Material-UI**: Consistent, modern design system
@@ -288,7 +288,7 @@ The platform uses a sophisticated Elo rating system adapted for sports:
 - **Loading States**: Smooth loading indicators
 - **Error Handling**: User-friendly error messages
 
-## 📱 Mobile Support
+## Mobile Support
 
 The platform is fully responsive and works seamlessly on:
 - Desktop computers
@@ -330,7 +330,7 @@ The platform is fully responsive and works seamlessly on:
 - **Frontend**: Vercel, Netlify, or AWS S3 + CloudFront
 - **Maps**: Google Maps API or Mapbox
 
-## 🧪 Testing
+## Testing
 
 ### Backend Testing
 ```bash
@@ -356,7 +356,7 @@ curl -X POST http://localhost:5000/api/auth/login \
   -d '{"email":"test@example.com","password":"password123"}'
 ```
 
-## 📈 Performance Optimization
+##  Performance Optimization
 
 ### Database Optimization
 - **Indexes**: Optimized indexes for common queries
@@ -368,7 +368,7 @@ curl -X POST http://localhost:5000/api/auth/login \
 - **Image Optimization**: Compressed and responsive images
 - **Caching**: Efficient API response caching
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 ### Planned Features
 - **Tournament System**: Organize and manage tournaments
@@ -385,26 +385,16 @@ curl -X POST http://localhost:5000/api/auth/login \
 - **Caching Layer**: Redis for improved performance
 - **Monitoring**: Comprehensive logging and monitoring
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
+## Support
 
 For support and questions:
 - Create an issue in the GitHub repository
 - Check the documentation
 - Review the API endpoints
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Elo rating system based on chess rating methodology
 - Material-UI for the design system
